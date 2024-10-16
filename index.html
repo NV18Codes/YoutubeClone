@@ -1,102 +1,103 @@
-<!DOCTYPE html> 
+<!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>YouTube Clone</title>
-    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
-    <script defer src="script.js"></script> <!-- External JavaScript -->
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+        integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
-<body class="bg-gray-100 font-sans">
 
-    <!-- Top Navbar -->
-    <nav class="bg-white shadow-md fixed w-full z-10">
-        <div class="flex items-center justify-between max-w-7xl mx-auto p-4">
-            <!-- Left Section: Logo and Hamburger Menu -->
-            <div class="flex items-center">
-                <button class="mr-4 md:hidden"> <!-- Hamburger menu on mobile -->
-                    <i class="fas fa-bars w-6 h-6 text-gray-700"></i>
-                </button>
-                <a href="#" class="flex items-center space-x-2 text-gray-700">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/b/b8/YouTube_Logo_2017.svg" class="h-6" alt="YouTube Logo">
-                    <span class="text-lg font-semibold">YouTube</span>
-                </a>
-            </div> 
+<body class="bg-gray-100">
 
-            <!-- Middle Section: Search Bar -->
-            <div class="flex-grow max-w-xl mx-4">
-                <div class="relative">
-                    <input type="text" id="search-input" class="w-full py-3 px-4 rounded-full border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500 text-gray-700" placeholder="Search videos...">
-                    <button onclick="searchYouTube()" class="absolute right-0 top-0 mt-2 mr-2 bg-blue-500 hover:bg-blue-600 text-white px-3 py-2 rounded-full">
-                        <i class="fas fa-search"></i>
-                    </button>
-                </div>
-            </div>
-
-            <!-- Right Section: Icons -->
-            <div class="flex space-x-4 items-center">
-                <button class="hover:bg-gray-200 p-2 rounded-full">
-                    <i class="fa-solid fa-ellipsis-vertical w-6 h-6 text-gray-700"></i>
-                </button>
-                <button class="flex items-center space-x-2 px-4 py-2 text-blue-600 border border-blue-600 rounded-full hover:bg-blue-600 hover:text-white">
-                    <i class="fa-regular fa-user"></i>
-                    <span class="hidden md:block">Sign in</span> <!-- Hidden on mobile -->
-                </button>
-            </div>
+    <!-- Navbar -->
+    <div class="flex items-center justify-between bg-white p-4 shadow-lg sticky top-0 z-10">
+        <div class="flex items-center space-x-4">
+            <!-- Hamburger Icon -->
+            <button class="hover:bg-gray-100 p-2 rounded-lg transition duration-300">
+                <i class="fas fa-bars text-gray-600"></i>
+            </button>
+            <!-- Logo -->
+            <img src="https://upload.wikimedia.org/wikipedia/commons/b/b8/YouTube_Logo_2017.svg" alt="YouTube Logo"
+                class="h-6">
         </div>
-    </nav>
+        <!-- Search Bar -->
+        <div class="flex items-center bg-gray-200 p-2 rounded-full w-1/2 mx-auto">
+            <input type="text" placeholder="Search" class="bg-gray-200 outline-none w-full pl-2 text-sm">
+            <button class="p-2 hover:bg-gray-300 rounded-full transition duration-300">
+                <i class="fas fa-search text-gray-600"></i>
+            </button>
+            <!-- Mic Icon -->
+            <button class="ml-2 p-2 hover:bg-gray-300 rounded-full transition duration-300">
+                <i class="fas fa-microphone text-gray-600"></i>
+            </button>
+        </div>
+        <!-- Sign In Button and Three-Dot Icon -->
+        <div class="flex items-center space-x-4">
+            <button
+                class="flex items-center bg-white border border-black text-black hover:bg-blue-500 hover:text-white px-4 py-2 rounded-full transition duration-300">
+                <i class="fas fa-user mr-2"></i>
+                Sign In
+            </button>
+            <button>
+                <i class="fas fa-ellipsis-v fa-2x text-gray-600"></i>
+            </button>
+        </div>
+    </div>
 
-    <!-- Sidebar and Main Content Wrapper -->
-    <div class="flex pt-16">
+    <!-- Sidebar and Main Content -->
+    <div class="flex">
         <!-- Sidebar -->
-        <aside class="bg-white shadow-md fixed top-16 h-screen w-20 md:w-60 p-4 transition-all duration-300 ease-in-out">
-            <ul class="space-y-8">
-                <!-- Home Icon -->
-                <li class="flex flex-col items-center md:flex-row hover:bg-gray-100 p-4 rounded-lg cursor-pointer transition duration-200">
-                    <i class="fas fa-home w-8 h-8 text-gray-700"></i>
-                    <span class="text-xs md:text-sm mt-1 md:ml-4 text-gray-700">Home</span>
-                </li>
+        <div class="w-24 bg-white h-screen p-4 shadow-lg fixed top-16 z-10">
+            <nav class="space-y-6">
+                <div class="flex flex-col items-center">
+                    <a href="#" class="text-gray-600 hover:text-blue-500 transition duration-300">
+                        <i class="fas fa-home text-xl"></i>
+                    </a>
+                    <span class="text-xs mt-1 text-gray-600">Home</span>
+                </div>
+                <div class="flex flex-col items-center">
+                    <a href="#" class="text-gray-600 hover:text-blue-500 transition duration-300">
+                        <i class="fas fa-video text-xl"></i>
+                    </a>
+                    <span class="text-xs mt-1 text-gray-600">Shorts</span>
+                </div>
+                <div class="flex flex-col items-center">
+                    <a href="#" class="text-gray-600 hover:text-blue-500 transition duration-300">
+                        <i class="fas fa-film text-xl"></i>
+                    </a>
+                    <span class="text-xs mt-1 text-gray-600">Subscriptions</span>
+                </div>
+                <div class="flex flex-col items-center">
+                    <a href="#" class="text-gray-600 hover:text-blue-500 transition duration-300">
+                        <i class="fas fa-user text-xl"></i>
+                    </a>
+                    <span class="text-xs mt-1 text-gray-600">You</span>
+                </div>
+                <div class="flex flex-col items-center">
+                    <a href="#" class="text-gray-600 hover:text-blue-500 transition duration-300">
+                        <i class="fas fa-history text-xl"></i>
+                    </a>
+                    <span class="text-xs mt-1 text-gray-600">History</span>
+                </div>
+            </nav>
+        </div>
 
-                <!-- Shorts Icon -->
-                <li class="flex flex-col items-center md:flex-row hover:bg-gray-100 p-4 rounded-lg cursor-pointer transition duration-200">
-                    <i class="fas fa-play-circle w-8 h-8 text-gray-700"></i>
-                    <span class="text-xs md:text-sm mt-1 md:ml-4 text-gray-700">Shorts</span>
-                </li>
-
-                <!-- Subscriptions Icon -->
-                <li class="flex flex-col items-center md:flex-row hover:bg-gray-100 p-4 rounded-lg cursor-pointer transition duration-200">
-                    <i class="fas fa-layer-group w-8 h-8 text-gray-700"></i>
-                    <span class="text-xs md:text-sm mt-1 md:ml-4 text-gray-700">Subscriptions</span>
-                </li>
-
-                <!-- You Icon -->
-                <li class="flex flex-col items-center md:flex-row hover:bg-gray-100 p-4 rounded-lg cursor-pointer transition duration-200">
-                    <i class="fas fa-user-circle w-8 h-8 text-gray-700"></i>
-                    <span class="text-xs md:text-sm mt-1 md:ml-4 text-gray-700">You</span>
-                </li>
-
-                <!-- History Icon -->
-                <li class="flex flex-col items-center md:flex-row hover:bg-gray-100 p-4 rounded-lg cursor-pointer transition duration-200">
-                    <i class="fas fa-history w-8 h-8 text-gray-700"></i>
-                    <span class="text-xs md:text-sm mt-1 md:ml-4 text-gray-700">History</span>
-                </li>
-            </ul>
-        </aside>
-
-        <!-- Main Content -->
-        <main class="flex-grow ml-20 md:ml-60 p-6"> <!-- Adjusted margin to account for fixed sidebar -->
-            <div class="flex justify-center pt-4">
-                <div class="bg-white p-6 rounded-lg shadow-lg max-w-lg w-full">
-                    <h1 class="text-2xl font-semibold text-center text-gray-700">Search YouTube Videos</h1>
-                    <p class="text-gray-600 text-center">Enter a query to search for videos on YouTube.</p>
+        <main class="flex-grow p-6 ml-24">
+            <!-- Adjusted margin to account for fixed sidebar -->
+            <div class="flex justify-center items-center pt-4">
+                <div class="bg-white p-6 rounded-lg shadow-lg max-w-lg w-full transition duration-300 transform hover:scale-105">
+                    <p class="text-xl font-semibold mb-2 text-center text-gray-700">Try searching to get started</p>
+                    <p class="text-gray-500 text-center">Start watching videos to help us build a feed of videos you'll love.</p>
                 </div>
             </div>
-
-            <!-- Results Section -->
-            <div id="results" class="mt-8 grid sm:grid-cols-2 lg:grid-cols-3 gap-6"></div> <!-- Videos will appear here -->
         </main>
     </div>
 
 </body>
+
 </html>
